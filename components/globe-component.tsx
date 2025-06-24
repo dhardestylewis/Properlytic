@@ -1,5 +1,6 @@
 "use client"
 
+import {} from "@/components/global-scripts"
 import { useEffect, useRef, useState } from "react"
 
 interface GlobeComponentProps {

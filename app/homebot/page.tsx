@@ -1,6 +1,6 @@
 "use client"
 import Navigation from "@/components/navigation"
-import MapComponent from "@/components/map-component"
+import MapComponentWithNoSSR from "@/components/dynamic-map"
 import ChatInterface from "@/components/chat-interface"
 
 export default function HomebotPage() {
@@ -12,7 +12,7 @@ export default function HomebotPage() {
         {/* Map Panel (60%) */}
         <div className="w-full md:w-3/5 h-1/2 md:h-full p-4">
           <div className="h-full rounded-xl overflow-hidden shadow-lg">
-            <MapComponent lightMode={true} />
+            <MapComponentWithNoSSR lightMode={true} />
           </div>
         </div>
 

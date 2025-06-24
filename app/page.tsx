@@ -12,7 +12,7 @@ import ChatInterface from "@/components/chat-interface"
 import TeamCard from "@/components/team-card"
 import GlobeComponent from "@/components/globe-component"
 import LocationPills from "@/components/location-pills"
-import AnimatedStat from "@/components/animated-stat"
+import AnimatedStatsWithNoSSR from "@/components/dynamic-animated-stats"
 import { useRouter } from "next/navigation"
 
 // Sample data for the slideshow using the provided home images
@@ -229,15 +229,15 @@ export default function Home() {
 
             <div className="grid grid-cols-3 gap-8 mt-8">
               <div className="text-center">
-                <AnimatedStat value={90} suffix="%" prefix="" duration={2000} delay={200} />
+                <AnimatedStatsWithNoSSR value={90} suffix="%" prefix="" duration={2000} delay={200} />
                 <p className="text-sm text-gray-600">Customer Retention Rate</p>
               </div>
               <div className="text-center">
-                <AnimatedStat value={12} suffix="%" prefix="<" duration={2000} delay={400} />
+                <AnimatedStatsWithNoSSR value={12} suffix="%" prefix="<" duration={2000} delay={400} />
                 <p className="text-sm text-gray-600">Deviation from Zillow</p>
               </div>
               <div className="text-center">
-                <AnimatedStat value={10000} suffix="" prefix="" duration={2000} delay={600} />
+                <AnimatedStatsWithNoSSR value={10000} suffix="" prefix="" duration={2000} delay={600} />
                 <p className="text-sm text-gray-600">HomeBot Pro Subscribers</p>
               </div>
             </div>
