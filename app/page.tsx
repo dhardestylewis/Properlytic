@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import Navigation from "@/components/navigation"
 import AnimatedPlaceholder from "@/components/animated-placeholder"
 import ImageSlideshow from "@/components/image-slideshow"
-import MapComponent from "@/components/map-component"
+import MapComponentWithNoSSR from "@/components/dynamic-map"
 import ChatInterface from "@/components/chat-interface"
 import TeamCard from "@/components/team-card"
 import GlobeComponent from "@/components/globe-component"
@@ -262,7 +262,7 @@ export default function Home() {
 
                 <div className="grid md:grid-cols-2 gap-0 h-[calc(100%-60px)]">
                   <div className="h-full p-4">
-                    <MapComponent lightMode={true} />
+                    <MapComponentWithNoSSR lightMode={true} />
                   </div>
 
                   <div className="h-full border-l border-gray-700">
