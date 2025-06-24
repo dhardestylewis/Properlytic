@@ -10,7 +10,6 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   title: "Properlytics - Real Estate Analytics Platform",
   description: "Your insight into real estate with advanced analytics and forecasting",
-  generator: 'v0.dev'
 };
 
 export default function RootLayout({
