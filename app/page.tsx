@@ -55,11 +55,11 @@ const teamMembers = [
 
 // Location data
 const locations = [
-  { name: "Manhattan", longitude: -73.9712, latitude: 40.7831 },
-  { name: "Cupertino", longitude: -122.0322, latitude: 37.323 },
+  { name: "New York City", longitude: -74.0060, latitude: 40.7128 },
+  { name: "Boston", longitude: -71.0589, latitude: 42.3601 },
   { name: "Los Angeles", longitude: -118.2437, latitude: 34.0522 },
-  { name: "Chicago", longitude: -87.6298, latitude: 41.8781 },
-  { name: "Miami", longitude: -80.1918, latitude: 25.7617 },
+  { name: "San Francisco", longitude: -122.4194, latitude: 37.7749 },
+  { name: "Austin", longitude: -97.7431, latitude: 30.2672 },
 ]
 
 export default function Home() {
@@ -229,18 +229,18 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-3 gap-8 mt-8">
-              <div className="text-center">
+              {/* <div className="text-center">
                 <AnimatedStatsWithNoSSR value={90} suffix="%" prefix="" duration={2000} delay={200} />
                 <p className="text-sm text-gray-600">Customer Retention Rate</p>
-              </div>
+              </div> */}
               <div className="text-center">
                 <AnimatedStatsWithNoSSR value={12} suffix="%" prefix="<" duration={2000} delay={400} />
-                <p className="text-sm text-gray-600">Deviation from Zillow</p>
+                <p className="text-sm text-gray-600">deviation from sale</p>
               </div>
-              <div className="text-center">
+              {/* <div className="text-center">
                 <AnimatedStatsWithNoSSR value={10000} suffix="" prefix="" duration={2000} delay={600} />
                 <p className="text-sm text-gray-600">HomeBot Pro Subscribers</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
