@@ -132,7 +132,7 @@ export default function Home() {
             backgroundPosition: "center",
           }}
         >
-          <div className="container mx-auto h-full px-4 flex">
+          <div className="container mx-auto h-full px-4 flex relative">
             {/* Left side - Text content */}
             <div className="w-full md:w-1/2 flex flex-col justify-center relative z-10">
               <div className="max-w-xl">
@@ -143,8 +143,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right side - Globe */}
-            <div className="hidden md:flex md:w-1/2 h-full items-center justify-center">
+            {/* Right side - Globe: Positioned absolutely to act as a background element */}
+            <div className="absolute top-0 right-0 w-1/2 h-full flex items-center justify-center z-0 md:flex hidden">
               <div className="w-[800px] h-[800px]">
                 <GlobeComponent expanded={globeExpanded} selectedLocation={selectedLocation || undefined} />
               </div>
