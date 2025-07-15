@@ -134,12 +134,12 @@ export default function Home() {
         >
           <div className="container mx-auto h-full px-4 flex">
             {/* Left side - Text content */}
-            <div className="w-full md:w-1/2 flex flex-col justify-center">
+            <div className="w-full md:w-1/2 flex flex-col justify-center relative z-10">
               <div className="max-w-xl">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-left">Your Insight Into Real Estate</h1>
-                <p className="text-xl md:text-2xl font-medium mb-8 text-left">
-                  Ask Homebot what your property will be worth
-                </p>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-left">Your Insight Into Real Estate</h1>
+              <p className="text-xl md:text-2xl font-medium mb-8 text-left">
+                Ask Homebot what your property will be worth
+              </p>
               </div>
             </div>
 
