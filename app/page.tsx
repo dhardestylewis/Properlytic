@@ -201,7 +201,7 @@ export default function Home() {
                 </h2>
 
                 <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <h3 className="font-medium mb-4">Market Growth Projections</h3>
+                  <h3 className="font-medium mb-4">Individual home price forecasting</h3>
                   <div className="h-48 rounded-lg overflow-hidden">
                     <img
                       src="/images/fan_chart_1.png"
@@ -211,16 +211,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <h3 className="font-medium mb-4">Price Trend Analysis</h3>
-                  <div className="h-48 rounded-lg overflow-hidden">
-                    <img
-                      src="/images/fan_chart_2.png"
-                      alt="Price Trend Fan Chart"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                </div>
               </div>
 
               <div className="h-[500px] md:h-[700px]">
@@ -275,17 +265,17 @@ export default function Home() {
                         initialMessages={[
                           {
                             id: 1,
-                            text: "Hello! I'm Homebot, your real estate AI assistant. How can I help you today?",
+                            text: "Hello! I'm Homebot. What would you like to know about the future of your home today?",
                             sender: "bot",
                           },
                           {
                             id: 2,
-                            text: "What will my apartment along East 86th Street be worth five years later?",
+                            text: "What will my townhome at 169 E 71st Street be worth in five years?",
                             sender: "user",
                           },
                           {
                             id: 3,
-                            text: "Based on recent sales in ARLOPARC and similar new developments on the Upper East Side, a 2-bedroom unit of this size could be valued between $2.7 million and $3.5 million. (For reference, a 2-bedroom unit in ARLOPARC recently listed for $2,762,003.12).",
+                            text: "Based on our proprietary AI forecasting model, 169 E 71st Street is projected to be worth between $15 million and $20 million.",
                             sender: "bot",
                           },
                         ]}

@@ -8,8 +8,8 @@ import { GlobalScripts } from "@/components/global-scripts"; // 1. Import the ne
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Properlytic - Real Estate Analytics Platform",
-  description: "Your insight into real estate with advanced analytics and forecasting",
+  title: "Properlytic - Chat about your home's future",
+  description: "Conversations about the future of your home",
 };
 
 export default function RootLayout({
