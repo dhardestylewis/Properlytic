@@ -12,8 +12,12 @@ import ChatInterface from "@/components/chat-interface"
 import TeamCard from "@/components/team-card"
 import GlobeComponent from "@/components/globe-component"
 import LocationPills from "@/components/location-pills"
+import { Map as MapComponent } from "@/components/map"
 import AnimatedStatsWithNoSSR from "@/components/dynamic-animated-stats"
 import { useRouter } from "next/navigation"
+import { PropertyList } from "@/components/property-list"
+import { SearchSidebar } from "@/components/search-sidebar"
+import { Property } from "@/types/property"
 
 // Sample data for the slideshow using the provided home images
 const propertyImages = [
@@ -62,13 +66,31 @@ const locations = [
   { name: "Austin", longitude: -97.7431, latitude: 30.2672 },
 ]
 
-export default function Home() {
+async function getProperties(searchParams: { [key: string]: string | string[] | undefined }): Promise<Property[]> {
+  const urlParams = new URLSearchParams()
+  if (searchParams.min_price) urlParams.append('min_price', String(searchParams.min_price))
+  if (searchParams.max_price) urlParams.append('max_price', String(searchParams.max_price))
+  if (searchParams.min_beds) urlParams.append('min_beds', String(searchParams.min_beds))
+  if (searchParams.min_baths) urlParams.append('min_baths', String(searchParams.min_baths))
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/properties?${urlParams.toString()}`, { cache: 'no-store' })
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+ 
+  return res.json()
+}
+
+export default function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
   const [inputValue, setInputValue] = useState("")
   const [selectedLocation, setSelectedLocation] = useState<(typeof locations)[0] | null>(null)
   const [globeExpanded, setGlobeExpanded] = useState(false)
+  const [properties, setProperties] = useState<Property[]>([])
 
   // Ensure proper scroll behavior
   useEffect(() => {
@@ -99,6 +121,15 @@ export default function Home() {
       container.removeEventListener("wheel", handleWheel)
     }
   }, [])
+
+  useEffect(() => {
+    const fetchProperties = async () => {
+      const props = await getProperties(searchParams)
+      setProperties(props)
+    }
+
+    fetchProperties()
+  }, [searchParams])
 
   const handleLocationSelect = (location: (typeof locations)[0]) => {
     setSelectedLocation(location)
@@ -305,6 +336,16 @@ export default function Home() {
               ))}
             </div>
           </div>
+        </section>
+
+        <section id="search" className="snap-section">
+          <main className="flex-1 grid grid-cols-1 md:grid-cols-[300px_1fr] lg:grid-cols-[350px_1fr] gap-8 p-4 md:p-6 h-full">
+            <SearchSidebar />
+            <div className="grid gap-8">
+              <PropertyList properties={properties} />
+              <MapComponent locations={properties.map(p => ({ id: p.id, lat: p.lat, lng: p.lng, title: p.title }))} />
+            </div>
+          </main>
         </section>
       </div>
     </main>
