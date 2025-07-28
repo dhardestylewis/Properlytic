@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { cookies } from "next/headers";
 import { kv } from "@vercel/kv";
 import { NEIGHBORHOOD_TO_CD_MAP } from "@/lib/config";
 
@@ -15,8 +14,8 @@ export async function POST(req: NextRequest) {
     limit = 5,
   } = await req.json();
 
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  // supply the cookie store to match createClient's required parameter
+  const supabase = createClient(req.headers);
 
   let query = supabase.from("properties").select(`
     address, cd, zipcode, bldgclass,
